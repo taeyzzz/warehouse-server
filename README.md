@@ -1,4 +1,8 @@
 # warehouse-server
 warehouse management server express node.js
 
-- try to set up script for initial database
+- jwt sign and verify
+- set cookies
+
+# TODO
+- cors error
