@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 
 const userRouter = require("./routers/user")
+const errorHandler = require("./utils/errorHandler")
 
 const app = express()
 
@@ -25,9 +26,11 @@ app.use("/user", userRouter)
 
 app.get("/", (req, res) => {
   res.json({
-    msg: "hello"
+    msg: "server is running"
   })
 })
+
+app.use(errorHandler)
 
 app.listen(PORT, () => {
   console.log(`server running port: ${PORT}`);

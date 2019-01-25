@@ -10,19 +10,34 @@
 
 <script>
 document.getElementById("demo").innerHTML = 'called';
-fetch("http://localhost:4000/user/register", {
+fetch("http://localhost:4000/user/login", {
       method: "post",
       credentials: 'include',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({email: "tkul@sertiscorp.com", password: "hello"})
+      body: JSON.stringify({
+        email: "tkul@sertiscorp.com",
+        password: "88888888",
+      })
     })
     .then(response => response.json()) // parses response to JSON
     .then(res => {
       console.log(res);
     })
+    // fetch("http://localhost:4000/user/info", {
+    //       method: "get",
+    //       credentials: 'include',
+    //       headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json',
+    //       },
+    //     })
+    //     .then(response => response.json()) // parses response to JSON
+    //     .then(res => {
+    //       console.log(res);
+    //     })
 </script>
 
 </body>

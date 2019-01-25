@@ -18,7 +18,7 @@ const createDatabase = async () => {
       console.log("Database already exist");
     }
     else{
-      console.log(err);
+      return Promise.reject(err)
     }
   }
   finally {
@@ -54,6 +54,7 @@ const createTables = async () => {
   }
   catch (err) {
     console.log(err);
+    return Promise.reject(err)
   }
   finally {
     client.release()
@@ -62,8 +63,13 @@ const createTables = async () => {
 }
 
 const setupDatabase = async () => {
-  await createDatabase()
-  await createTables()
+  try {
+    await createDatabase()
+    await createTables()
+  }
+  catch (err) {
+    console.log(err);
+  }
 }
 
 setupDatabase()
