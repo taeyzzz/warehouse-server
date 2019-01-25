@@ -10,7 +10,12 @@ const app = express()
 
 const PORT = process.env.PORT || 4000
 
-app.use(cors())
+app.use(cors({
+  origin: function (origin, callback) {
+    callback(null, true)
+  },
+  credentials: true
+}))
 app.use(cookieParser())
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
