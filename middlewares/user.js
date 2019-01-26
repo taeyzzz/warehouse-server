@@ -20,6 +20,7 @@ exports.login = async (req, res, next) => {
   }
   catch (err) {
     console.log(err);
+    err.httpStatusCode = 401
     next(err)
   }
   finally{
@@ -52,7 +53,8 @@ exports.register = async (req, res, next) => {
   }
   catch (err) {
     console.log(err);
-    next(new Error("Bad Request"))
+    err.httpStatusCode = 400
+    next(err)
   }
   finally{
     client.release()

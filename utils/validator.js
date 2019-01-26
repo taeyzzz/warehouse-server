@@ -8,7 +8,11 @@ function Validator(bluePrint){
       )
     }, true)
     if(validateBodyPass) return next()
-    else return next(new Error("Validate body fail"))
+    else{
+      const err = new Error("Request body invalid")
+      err.httpStatusCode = 400
+      return next(err)
+    }
   }
 }
 
