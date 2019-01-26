@@ -14,10 +14,7 @@ docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=postgres -d postgre
 
 2. run docker pg/admin
 ```bash
-docker run -p 3333:80 \                
--e "PGADMIN_DEFAULT_EMAIL=admin" \
--e "PGADMIN_DEFAULT_PASSWORD=password" \
---link postgres -d dpage/pgadmin4
+docker run -p 3333:80 --name postgres-admin -e "PGADMIN_DEFAULT_EMAIL=admin" -e "PGADMIN_DEFAULT_PASSWORD=password" --link postgres -d dpage/pgadmin4
 ```
 
 3. set up database by command

@@ -11,7 +11,7 @@ const createDatabase = async () => {
   const client = await pool.connect()
   try {
     const res = await client.query('CREATE DATABASE warehouse')
-    console.log(res);
+    console.log("Created Database");
   }
   catch (err) {
     if(err && err.code === "42P04"){
